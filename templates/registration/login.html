@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div>
+    {% if form.errors %}
+    <p>아이디나 비번 맞지 않습니다. 다시 입력!</p>
+    {% endif %}
+
+    <h1>login</h1>
+    <form method ="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+
+</div>
+
+{% endblock %}
